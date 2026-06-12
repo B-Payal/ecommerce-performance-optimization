@@ -35,15 +35,20 @@ const skip = (page - 1) * limit;
         user: {
           select: {
             name: true,
+            id:true , 
+            email:true,
+            avatarUrl:true,
+            address:true,
+            bio:true,
           },
         },
-        orderItems: {
+        items: {
           select: {
             quantity: true,
             product: {
               select: {
-                name: true,
-                price: true,
+                image: true,
+                category: true,
               },
             },
           },
@@ -51,14 +56,7 @@ const skip = (page - 1) * limit;
       },
     });
 
-    res.json({
-      currentPage: page,
-      totalPages: totalPages,
-      total,
-      hasNextPage: page < totalPages,
-      hasPrevPage: page > 1,
-      data: orders,
-    });
+    res.json(orders);
   } catch (error) {
     console.error(error);
     res.status(500).json({
