@@ -196,3 +196,6 @@ Content-Encoding: gzip
 # Conclusion
 
 By replacing the N+1 query pattern with a single nested Prisma query, implementing pagination, trimming unnecessary fields using `select`, removing blocking synchronous computation, and enabling gzip compression, the `/api/orders` endpoint became significantly faster, more scalable, and more secure. These optimizations reduced database load, minimized network traffic, improved response times, and ensured the application can efficiently handle much larger data sets.
+
+
+this is how I optimized
